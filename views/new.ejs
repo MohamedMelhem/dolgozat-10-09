@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Új Termék</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>Új Termék felvétele</h1>
+    <% if (success) { %>
+      <p class="success">🎉 Sikeres 🎉 adatfelvétel</p>
+      <a href="/">Vissza a főoldalra</a>
+    <% } else { %>
+      <form action="/new" method="post">
+        <label for="name">Termék neve</label>
+        <input id="name" name="name" type="text" value="<%= formData.name %>" required>
+
+        <label for="category">Kategoria</label>
+        <input id="category" name="category" type="text" value="<%= formData.category %>" required>
+
+
+        <label for="price">ar</label>
+        <input id="price" name="price" type="number" min="0" step="any" value="<%= formData.price %>" required>
+
+        <label for="stock">keszlet</label>
+        <input id="stock" name="stock" type="number" min="0" step="1" value="<%= formData.stock %>" required>
+
+        <button type="submit">Mentés</button>
+      </form>
+      <% if (error) { %>
+        <p class="error"><%= error %></p>
+      <% } %>
+      <p><a href="/">Vissza a főoldalra</a></p>
+    <% } %>
+  </main>
+</body>
+</html>
