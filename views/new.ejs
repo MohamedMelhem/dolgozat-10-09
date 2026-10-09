@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Új Termék</title>
+
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <main>
     <h1>Új Termék felvétele</h1>
+    <hr width="100%;" color="gold" size="5">
     <% if (success) { %>
       <p class="success">🎉 Sikeres 🎉 adatfelvétel</p>
       <a href="/">Vissza a főoldalra</a>
@@ -23,10 +25,10 @@
 
         <label for="price">ar</label>
         <input id="price" name="price" type="number" min="0" step="any" value="<%= formData.price %>" required>
-
+        
         <label for="stock">keszlet</label>
         <input id="stock" name="stock" type="number" min="0" step="1" value="<%= formData.stock %>" required>
-
+        <br>
         <button type="submit">Mentés</button>
       </form>
       <% if (error) { %>
